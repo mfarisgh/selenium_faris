@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+    <Properties>
+        <Property name="logspath">./logs
+        </Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="Logfiles"
+                     fileName="${logspath}/stc_lastrun.log"
+                     filePattern="${logspath}/stc_%d{dd-MM-yyyy_HH-mm-ss-SSS_zzz}.log">
+            <PatternLayout>
+                <pattern>%d %p %c{1.} [%t] %m%n</pattern>
+            </PatternLayout>
+            <SizeBasedTriggeringPolicy size="4096" />
+        </RollingFile>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{dd/MM/yyyy HH:mm:ss:SSS zzz} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="test" level="debug" additivity="false">
+            <AppenderRef ref="Logfiles" />
+        </Logger>
+        <Root level="debug">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="Logfiles" />
+        </Root>
+    </Loggers>
+</Configuration>
