@@ -20,9 +20,12 @@ public class SearchUsersActions {
         searchUsersLocators.searchUsername.sendKeys(searchUsername);
 
         searchUsersLocators.searchBtn.click();
+
     }
 
     public String getSearchErrorMsg() {
+
         return searchUsersLocators.searchErrorMessage.getText();
+
     }
 }

@@ -39,7 +39,7 @@ public class OrangeHRMLogin {
 
         objLogin.login(userName, passWord);
 
-        Assert.assertTrue(objHomePage.getHomePageText().contains("Dashboard"));
+        Assert.assertTrue(objHomePage.getHomePageText().contains("Time at Work"));
 
     }
 

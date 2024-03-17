@@ -5,6 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class DashboardLocators {
 
-    @FindBy(xpath = "//span[@class='oxd-topbar-header-breadcrumb']/h6")
-    public WebElement homePageUserName;
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div/div[1]/div/p")
+    public WebElement homePageElementName;
 }

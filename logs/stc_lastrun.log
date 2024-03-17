@@ -1,39 +1,4 @@
-2024-03-16 22:57:04,287 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = JIRA_USERNAME
-2024-03-16 22:57:04,304 DEBUG c.e.s.c.PropFileMgmt [main] propName = jira.token
-2024-03-16 22:57:04,304 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = JIRA_TOKEN
-2024-03-16 22:57:04,305 DEBUG c.e.s.c.PropFileMgmt [main] propName = jira.project
-2024-03-16 22:57:04,306 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = JIRA_PROJ
-2024-03-16 22:57:04,349 DEBUG c.e.s.c.d.WebDriverHooks [main] issueSummary = Users enter valid username Failed in Automation Testing
-2024-03-16 22:57:04,350 DEBUG c.e.s.c.d.WebDriverHooks [main] issueDescription = Failure Reason from Automation Testing
-
-Users enter valid username condition does not met. 
-
-2024-03-16 22:57:06,844 DEBUG c.e.s.c.JiraMgmt [main] ********************************************
-2024-03-16 22:57:06,845 DEBUG c.e.s.c.JiraMgmt [main] New issue created in Jira with ID : STC-6
-2024-03-16 22:57:06,846 DEBUG c.e.s.c.JiraMgmt [main] New issue URL is : https://mfarisj.atlassian.net/browse/STC-6
-2024-03-16 22:57:06,846 DEBUG c.e.s.c.JiraMgmt [main] *******************************************
-2024-03-16 22:57:08,110 DEBUG c.e.s.c.JiraMgmt [main] An attachment is added for issue : STC-6
-2024-03-16 22:57:08,400 DEBUG c.e.s.c.PropFileMgmt [main] propName = browser
-2024-03-16 22:57:08,401 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = BROWSER
-2024-03-16 22:57:08,453 DEBUG c.e.s.c.PropFileMgmt [main] propName = browser.mode
-2024-03-16 22:57:08,454 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = BROWSER_MODE
-2024-03-16 22:57:08,455 DEBUG c.e.s.c.PropFileMgmt [main] propName = location
-2024-03-16 22:57:08,455 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = PLATFORM_LOC
-2024-03-16 22:57:19,194 DEBUG c.e.s.c.d.WebDriverHooks [main] Scenario : Users enter invalid username (9c38362f-3033-4665-bcf1-f53bf9d49549)
-2024-03-16 22:57:19,195 DEBUG c.e.s.c.d.WebDriverHooks [main] PASSED
-2024-03-16 22:57:19,384 DEBUG c.e.s.c.PropFileMgmt [main] propName = browser
-2024-03-16 22:57:19,385 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = BROWSER
-2024-03-16 22:57:19,444 DEBUG c.e.s.c.PropFileMgmt [main] propName = browser.mode
-2024-03-16 22:57:19,444 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = BROWSER_MODE
-2024-03-16 22:57:19,445 DEBUG c.e.s.c.PropFileMgmt [main] propName = location
-2024-03-16 22:57:19,446 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = PLATFORM_LOC
-2024-03-16 22:57:30,202 DEBUG c.e.s.c.d.WebDriverHooks [main] Scenario : Users enter invalid username (1f6b6d18-93da-4bd4-958d-79fb9e7371b4)
-2024-03-16 22:57:30,203 DEBUG c.e.s.c.d.WebDriverHooks [main] PASSED
-2024-03-16 22:57:30,362 DEBUG c.e.s.c.PropFileMgmt [main] propName = browser
-2024-03-16 22:57:30,363 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = BROWSER
-2024-03-16 22:57:30,406 DEBUG c.e.s.c.PropFileMgmt [main] propName = browser.mode
-2024-03-16 22:57:30,407 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = BROWSER_MODE
-2024-03-16 22:57:30,408 DEBUG c.e.s.c.PropFileMgmt [main] propName = location
-2024-03-16 22:57:30,409 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = PLATFORM_LOC
-2024-03-16 22:57:41,009 DEBUG c.e.s.c.d.WebDriverHooks [main] Scenario : Users enter invalid username (73ca1755-6891-435d-bed0-c4e3f28695c8)
-2024-03-16 22:57:41,010 DEBUG c.e.s.c.d.WebDriverHooks [main] PASSED
+2024-03-17 16:39:50,214 DEBUG c.e.s.c.PropFileMgmt [main] propName = location
+2024-03-17 16:39:50,222 DEBUG c.e.s.c.PropFileMgmt [main] envVarName = PLATFORM_LOC
+2024-03-17 16:40:04,069 DEBUG c.e.s.c.d.WebDriverHooks [main] Scenario : Users enter invalid username (7b09c0e3-ab86-4fbe-812c-1486860fab1c)
+2024-03-17 16:40:04,070 DEBUG c.e.s.c.d.WebDriverHooks [main] PASSED

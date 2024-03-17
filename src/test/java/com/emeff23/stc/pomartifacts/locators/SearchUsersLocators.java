@@ -11,6 +11,6 @@ public class SearchUsersLocators {
     @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[1]/div[2]/form/div[2]/button[2]")
     public WebElement searchBtn;
 
-    @FindBy(xpath = "//p[(text() = 'No Records Found' or . = 'No Records Found')]")
+    @FindBy(xpath = "//*[@id=\"app\"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/span")
     public WebElement searchErrorMessage;
 }

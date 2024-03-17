@@ -13,9 +13,12 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.time.Duration;
 import java.util.Arrays;
 
 public class OrangeHRMSearchUsers {
@@ -50,27 +53,35 @@ public class OrangeHRMSearchUsers {
     @Test(dataProvider = "SearchUsersTestData")
     public void searchUsers(String searchUsername) {
 
-        objLogin = new LoginActions();
-
-        menuActions = new MenuActions();
-
-        searchUsersActions = new SearchUsersActions();
-
-        String userName = "Admin";
-        String passWord = "admin123";
-
-        objLogin.login(userName, passWord);
-
-        menuActions.navigateMenuAdmin();
-
-        //String searchUsername = "Alice";
-
-        searchUsersActions.search(searchUsername);
-
         try {
 
+            objLogin = new LoginActions();
+
+            menuActions = new MenuActions();
+
+            searchUsersActions = new SearchUsersActions();
+
+            String userName = "Admin";
+            String passWord = "admin123";
+
+            objLogin.login(userName, passWord);
+
+            menuActions.navigateMenuAdmin();
+
+            //String searchUsername = "Alice";
+
+            searchUsersActions.search(searchUsername);
+
+            String usernameInListXpath = "(//div[contains(text(),'" + searchUsername + "')])[1]";
+
             WebDriver driver = WebDriverHelper.getDriver();
-            WebElement usernameInList = driver.findElement(By.xpath("(//div[contains(text(),'" + searchUsername + "')])[1]"));
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(usernameInListXpath)));
+
+            WebElement usernameInList = driver.findElement(By.xpath(usernameInListXpath));
+
             Assert.assertEquals(usernameInList.getText(), searchUsername);
 
         } catch (Exception e) {
@@ -88,7 +99,7 @@ public class OrangeHRMSearchUsers {
         // Setting up the Test Data Excel file
 
         TestNgExcelMgmt
-                .setExcelFile("excel/td/TD-OrangeHRMSearchUsers.xlsx","Sheet1");
+                .setExcelFile("excel/td/TD-OrangeHRMSearchUsers.xlsx", "Sheet1");
 
         testCaseName = this.toString();
 

@@ -33,7 +33,7 @@ public class OrangeHRMLoginPOMDef {
     public void verifyLogin() {
 
         // Verify home page
-        Assert.assertTrue(objHomePage.getHomePageText().contains("Dashboard"));
+        Assert.assertTrue(objHomePage.getHomePageText().contains("Time at Work"));
 
     }
 

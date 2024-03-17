@@ -14,6 +14,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class OrangeHRMSearchUsersFail {
 
     private static final Logger LogThis = LogManager.getLogger(OrangeHRMSearchUsers.class.getName());
@@ -41,26 +43,31 @@ public class OrangeHRMSearchUsersFail {
     @Test
     public void searchUsers() {
 
-        objLogin = new LoginActions();
-
-        menuActions = new MenuActions();
-
-        searchUsersActions = new SearchUsersActions();
-
-        String userName = "Admin";
-        String passWord = "admin123";
-
-        objLogin.login(userName, passWord);
-
-        menuActions.navigateMenuAdmin();
-
-        String searchUsername = "Alice";
-
-        searchUsersActions.search(searchUsername);
-
         try {
 
+            objLogin = new LoginActions();
+
+            menuActions = new MenuActions();
+
+            searchUsersActions = new SearchUsersActions();
+
+            String userName = "Admin";
+            String passWord = "admin123";
+
+            objLogin.login(userName, passWord);
+
+            menuActions.navigateMenuAdmin();
+
+            String searchUsername = "Alice";
+
+            searchUsersActions.search(searchUsername);
+
             String searchErrorMessage = "No Records Found";
+
+            Thread.sleep(Duration.ofSeconds(3).toMillis());
+
+            LogThis.debug(searchUsersActions.getSearchErrorMsg());
+
             Assert.assertEquals(searchUsersActions.getSearchErrorMsg(), searchErrorMessage);
 
         } catch (Exception e) {

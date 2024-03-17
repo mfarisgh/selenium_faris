@@ -22,7 +22,7 @@ public abstract class PropFileMgmt {
             InputStream inputStream = Files.newInputStream(Paths.get(CentralVars.ProjectPath + "/src/test/resources/local.properties"));
             properties.load(inputStream);
 
-            LogThis.debug("propName = " + propName);
+            //LogThis.debug("propName = " + propName);
 
             propValue = properties.getProperty(propName);
 
@@ -58,7 +58,7 @@ public abstract class PropFileMgmt {
         while(m.find()){
             String envVarName = null == m.group(1) ? m.group(2) : m.group(1);
 
-            LogThis.debug("envVarName = " + envVarName);
+            //LogThis.debug("envVarName = " + envVarName);
 
             String envVarValue = System.getenv(envVarName);
 

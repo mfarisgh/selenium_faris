@@ -35,10 +35,12 @@ public class WebDriverHelper {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     ChromeOptions options = new ChromeOptions();
+
+                    options.addArguments("--window-size=1920,1080");
+                    options.addArguments("--start-maximized");
+
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameBrowserMode).equalsIgnoreCase("headless")) {
                         options.addArguments("--headless");
-                    } else {
-                        options.addArguments("--start-maximized");
                     }
 
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameLocation).equalsIgnoreCase("lambdatest")) {

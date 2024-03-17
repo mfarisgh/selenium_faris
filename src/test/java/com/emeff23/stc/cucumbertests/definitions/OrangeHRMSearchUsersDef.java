@@ -7,12 +7,20 @@ import com.emeff23.stc.pomartifacts.common.WebDriverHelper;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.time.Duration;
+
 public class OrangeHRMSearchUsersDef {
+
+    private static final Logger LogThis = LogManager.getLogger(OrangeHRMSearchUsersDef.class.getName());
 
     LoginActions objLogin = new LoginActions();
 
@@ -40,17 +48,45 @@ public class OrangeHRMSearchUsersDef {
     @Then("Username {string} is exist")
     public void searchSuccessful(String userName) {
 
-        WebDriver driver = WebDriverHelper.getDriver();
-        WebElement usernameInList = driver.findElement(By.xpath("(//div[contains(text(),'" + userName + "')])[1]"));
-        Assert.assertEquals(usernameInList.getText(), userName);
+        try {
+
+            String usernameInListXpath = "(//div[contains(text(),'" + userName + "')])[1]";
+
+            WebDriver driver = WebDriverHelper.getDriver();
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(usernameInListXpath)));
+
+            WebElement usernameInList = driver.findElement(By.xpath(usernameInListXpath));
+
+            Assert.assertEquals(usernameInList.getText(), userName);
+
+        } catch (Exception e) {
+
+            LogThis.error("Exception e = " + e.getMessage());
+            Assert.fail("Exception e = " + e.getMessage());
+
+        }
 
     }
 
     @Then("User should be able to see following prompt message {string}")
     public void searchFailed(String searchErrorMessage) {
 
-        // Verify error message
-        Assert.assertEquals(searchUsersActions.getSearchErrorMsg(), searchErrorMessage);
+        try {
+
+            Thread.sleep(Duration.ofSeconds(3).toMillis());
+
+            // Verify error message
+            Assert.assertEquals(searchUsersActions.getSearchErrorMsg(), searchErrorMessage);
+
+        } catch (Exception e) {
+
+            LogThis.error("Exception e = " + e.getMessage());
+            Assert.fail("Exception e = " + e.getMessage());
+
+        }
 
     }
 }

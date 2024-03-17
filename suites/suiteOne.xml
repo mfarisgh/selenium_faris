@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="TestNG Suite 1">
+    <listeners>
+        <listener class-name="com.emeff23.stc.listener.TestNgListener"/>
+    </listeners>
+    <test name="TestNG OrangeHRM Test">
+        <classes>
+            <class name="com.emeff23.stc.noncucumbertests.OrangeHRMLogin"/>
+            <class name="com.emeff23.stc.noncucumbertests.OrangeHRMSearchUsers"/>
+            <class name="com.emeff23.stc.noncucumbertests.OrangeHRMSearchUsersFail"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
