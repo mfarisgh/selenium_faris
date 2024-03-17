@@ -43,6 +43,10 @@ public class WebDriverHelper {
                         options.addArguments("--headless");
                     }
 
+                    options.addArguments("--remote-allow-origins=*");
+                    options.addArguments("--ignore-ssl-errors=yes");
+                    options.addArguments("--ignore-certificate-errors");
+
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameLocation).equalsIgnoreCase("lambdatest")) {
 
                         options.setPlatformName("Windows 10");
