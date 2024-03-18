@@ -140,7 +140,7 @@ M. Faris - [Facebook](https://fb.me/its.me.eff) - mfaris.official@gmail.com
 
 GitHub : [mfarisgh](https://github.com/mfarisgh)
 
-<p align="right">(<a href="readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
