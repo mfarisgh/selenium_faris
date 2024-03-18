@@ -22,14 +22,27 @@ public class TestNgListener implements ITestListener {
 
         try {
 
+            String testClassName = result.getTestClass().getName();
+
+            LogThis.debug("Failed Test Class Name = " + testClassName);
+
+            String testMethodName = result.getMethod().getConstructorOrMethod().getMethod().getName();
+
+            LogThis.debug("Failed Test Method Name = " + testMethodName);
+
+            Map<byte[], String> screenshotObj = FileMgmt
+                    .saveScreenshot(testClassName + "_" + testMethodName);
+
+            String getPropJiraEnabled = PropFileMgmt.getPropertyValue(CentralVars.PropNameJiraEnabled);
+
+            LogThis.debug("Is Jira enabled = " + getPropJiraEnabled);
+
             boolean isLogIssue = result.getMethod().getConstructorOrMethod().getMethod()
                     .getAnnotation(JiraThis.class).isCreateIssue();
 
-            if (isLogIssue) {
+            if (isLogIssue && getPropJiraEnabled.equalsIgnoreCase("true")) {
 
                 List<String> screenshotPathList = new ArrayList<>();
-
-                Map<byte[], String> screenshotObj = FileMgmt.saveScreenshot(result.getTestName());
 
                 for (Map.Entry<byte[], String> entry : screenshotObj.entrySet()) {
 
@@ -37,7 +50,7 @@ public class TestNgListener implements ITestListener {
 
                 }
 
-//Provide proper Jira project URL ex: https://browsertack.atlassian.net
+//Provide proper Jira project URL (Do not forget the ending slash) ex: https://browsertack.atlassian.net/
 //Jira User name ex: browserstack@gmail.com
 //API token copy from Jira dashboard ex: lorelimpusm12uijk
 //Project key should be, Short name ex: BS
@@ -52,7 +65,7 @@ public class TestNgListener implements ITestListener {
 
                 issueDescription.concat(ExceptionUtils.getFullStackTrace(result.getThrowable()));
 
-                String issueSummary = result.getMethod().getConstructorOrMethod().getMethod().getName()
+                String issueSummary = testMethodName
                         + " Failed in Automation Testing";
 
                 LogThis.debug("issueSummary = " + issueSummary);

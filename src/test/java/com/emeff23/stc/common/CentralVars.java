@@ -13,6 +13,7 @@ public abstract class CentralVars {
     public static String PropNameLtAccesskey = "lt.accesskey";
     public static String PropNameWebUrl = "web.url";
 
+    public static String PropNameJiraEnabled = "jira.enabled";
     public static String PropNameJiraUrl = "jira.url";
     public static String PropNameJiraUsername = "jira.username";
     public static String PropNameJiraToken = "jira.token";

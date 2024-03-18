@@ -49,7 +49,15 @@ public class WebDriverHooks {
 
                 }
 
-                cucumberLogToJira(scenario, screenshotPathList);
+                String getPropJiraEnabled = PropFileMgmt.getPropertyValue(CentralVars.PropNameJiraEnabled);
+
+                LogThis.debug("Is Jira enabled = " + getPropJiraEnabled);
+
+                if (getPropJiraEnabled.equalsIgnoreCase("true")) {
+
+                    cucumberLogToJira(scenario, screenshotPathList);
+
+                }
 
             }
 

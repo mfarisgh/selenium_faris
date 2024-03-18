@@ -65,7 +65,7 @@ public class JiraMgmt {
 
             LogThis.debug("New issue created in Jira with ID : " + newIssue.getKey());
 
-            LogThis.debug("New issue URL is : "+JiraUrl+"/browse/"+newIssue.getKey());
+            LogThis.debug("New issue URL is : " + JiraUrl + "browse/" + newIssue.getKey());
 
             LogThis.debug("*******************************************");
 

@@ -41,7 +41,7 @@ public class OrangeHRMSearchUsersFail {
     }
 
     @Test
-    public void searchUsers() {
+    public void searchUsersFail() {
 
         try {
 
