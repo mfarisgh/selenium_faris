@@ -31,22 +31,22 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="about-the-project">About The Project</a>
+      <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="built-with">Built With</a></li>
-        <li><a href="test-scenarios">Test Scenarios</a></li>
+        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#test-scenarios">Test Scenarios</a></li>
       </ul>
     </li>
     <li>
-      <a href="getting-started">Getting Started</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="prerequisites">Prerequisites</a></li>
-        <li><a href="running-the-automation-tests">Running the Automation Tests</a></li>
-        <li><a href="running-the-automation-tests-using-ci">Running the Automation Tests using CI</a></li>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#running-the-automation-tests">Running the Automation Tests</a></li>
+        <li><a href="#running-the-automation-tests-using-ci">Running the Automation Tests using CI</a></li>
       </ul>
     </li>
-    <li><a href="contact">Contact</a></li>
-    <li><a href="acknowledgements">Acknowledgements</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -60,7 +60,7 @@ The goal of this project is to demonstrate how an Automation Testing is done usi
 Of course this project is not limited to its current conditions. 
 You may fork it and customize it further with more tools/frameworks depending on your needs.
 
-<p align="right">(<a href="readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ### Built With
@@ -72,7 +72,7 @@ You may fork it and customize it further with more tools/frameworks depending on
 * TestNG 7
 * [Unofficial Jira Client 0.5](https://github.com/bobcarroll/jira-client)
 
-<p align="right">(<a href="readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 ### Test Scenarios
@@ -82,7 +82,7 @@ You may fork it and customize it further with more tools/frameworks depending on
 * OrangeHRM Successful Username Search
 * OrangeHRM Failed Username Search
 
-<p align="right">(<a href="readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -129,7 +129,7 @@ The following prerequisites that you will need to get started:
 
 * Coming soon ...
 
-<p align="right">(<a href="readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -155,7 +155,7 @@ GitHub : [mfarisgh](https://github.com/mfarisgh)
 * [Arpan Saini (Stack Overflow)](https://stackoverflow.com/questions/4501215/can-testng-run-multiple-suites)
 * [Ganesh Hegde (BrowserStack)](https://www.browserstack.com/guide/how-to-integrate-jira-with-selenium)
 
-<p align="right">(<a href="readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
