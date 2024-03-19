@@ -1,0 +1,19 @@
+version: 2.1
+
+workflows:
+  selenium-tests:
+    jobs:
+      - selenium-tests-self-runner
+
+jobs:
+  selenium-tests-self-runner:
+    machine: true
+    resource_class: mfarisgh/faris-self-hosted
+    steps:
+      - checkout
+      - run:
+          name: Install Maven dependencies
+          command: mvn clean install
+      - run:
+          name: Run Selenium tests
+          command: mvn test
