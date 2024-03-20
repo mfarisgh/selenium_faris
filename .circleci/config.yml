@@ -8,7 +8,7 @@ workflows:
 jobs:
   selenium-tests-self-runner:
     machine: true
-    resource_class: mfarisgh/faris-self-hosted
+    resource_class: $RES_CLASS
     steps:
       - checkout
       - run:
