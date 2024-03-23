@@ -175,7 +175,43 @@ Optional
 *Just get a higher paid t2 instances to be able to run Jenkins properly.*
 *[Explanation 1](https://stackoverflow.com/questions/57991172/aws-ec2-t2-micro-unlimited-jenkins-maven-very-slow-build-hangs), [Explanation 2](https://stackoverflow.com/questions/71038504/when-jenkins-job-in-running-ip-gets-frozen-and-inaccessible), [Explanation 3](https://serverfault.com/questions/932544/ec2-instance-freezes)*
 
+#### B. CircleCI (Not for the faint of heart!)
 
+1. CircleCI is intended to be used with projects that is already committed to your own GitHub repository. The behaviour is not the same as Jenkins. With Jenkins, you can checkout any compatible public repositories.
+2. To use CircleCI, you may fork my repository to your own GitHub repository. Proceed with any changes as desired in your own repository.
+3. Ensure that you have [linked your GitHub account to your CircleCI account](https://circleci.com/docs/getting-started/). You will be able to see your GitHub projects in CircleCI and follow it.
+4. Since the project has already included the `.circleci/config.yml` file, you should be able to [configure the pipeline](https://circleci.com/docs/config-editor/) straight away without the need to go through the first time configuration wizard. Otherwise, click on where it says "Skip ... bla3". If there is a button where it says "Use existing config", click it. Then, click "Start building".
+5. You will be presented with an in-app configuration editor. You may remove the following line of code to be able to run the pipeline using CircleCI's provided runner, click "Save and Run". If it fails, proceed to step 9. Otherwise, if you want to set-up your own runner using your Linux server, proceed to step 6.
+   ```sh
+   resource_class: mfarisgh/faris-self-hosted
+   ```
+6. If you want to self-host a runner using your Linux server without the usage of Docker images, ensure that OpenJDK, a browser and Maven have been installed. Follow step 2 in A. Jenkins.
+7. [Set-up your own runner (Part 1).](https://circleci.com/docs/local-cli/)
+8. [Set-up your own runner (Part 2).](https://circleci.com/docs/install-machine-runner-3-on-linux/)
+9. [Set environment variables in your project.](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project) Put the following environment variables and respective values.
+    ```sh
+    <Name> = <Value>
+    PLATFORM_LOC='local' # local or lambdatest
+    BROWSER='chrome'
+    BROWSER_MODE='headless' # it is better to use headless as we will run it on a non-GUI Linux server
+    LT_USERNAME='<your LambdaTest username>' # You may leave it blank if platform used is local.
+    LT_API_KEY='<your LambdaTest access key>' # You may leave it blank if platform used is local. Refer here on how to get them https://www.lambdatest.com/support/docs/hyperexecute-how-to-get-my-username-and-access-key/
+    JIRA_ENABLED='true' #true or false
+    JIRA_URL='<your Jira URL with ending slash>' # You may leave it blank if false
+    JIRA_USERNAME='<your Jira email address>' # You may leave it blank if false
+    JIRA_TOKEN='<your Jira Token>' # You may leave it blank if false. Refer here on how to get them https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/
+    JIRA_PROJ='<your Jira project code>' # You may leave it blank if false
+    ```
+10. If you use self-hosted runner. In your CircleCI project, select branch 'master' and click "Edit Config". Replace the following line of code with your resource class name for your self-hosted runner.
+    ```sh
+    resource_class: #your resource class name for your self-hosted runner
+    ```
+11. Click "Save and Run" if you are from the in-app configuration editor. Otherwise, click "Trigger Pipeline" if you are in the project page.
+12. Keep in mind that every changes in your GitHub repo automatically triggers the pipeline. So, if you use CircleCI and constantly making changes to your GitHub repo. You will need to monitor your CircleCI project's pipeline to ensure there are no unwanted running jobs. Especially if you are using self-hosted runner, where if your runner is shut down and you are still making changes to your GitHub repo, you will need to manually cancel the running job in CircleCI project's pipeline.
+
+*Side note: Yeah, I know the steps are confusing/cumbersome at first. Just use Jenkins, it will be a bit easier for starters.*
+*I have tried running CircleCI runner in 1GB RAM and 1 core CPU Linux virtual machine using VirtualBox, it works!*
+*Surprisingly, the AWS EC2 Free Tier instance, which has almost the same specs (t2.micro with 1GB RAM, 1 core CPU, Linux OS) also works! But still, do it at your own risk and keep monitoring if any charges occured in your AWS account. Always shut down any EC2 instances when not being used.*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
