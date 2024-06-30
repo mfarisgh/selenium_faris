@@ -14,6 +14,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class WebDriverHelper {
@@ -37,7 +39,7 @@ public class WebDriverHelper {
                     ChromeOptions options = new ChromeOptions();
 
                     options.addArguments("--window-size=1920,1080");
-                    options.addArguments("--start-maximized");
+                    //options.addArguments("--start-maximized");
 
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameBrowserMode).equalsIgnoreCase("headless")) {
                         options.addArguments("--headless");
@@ -51,18 +53,10 @@ public class WebDriverHelper {
 
                         options.setPlatformName("Windows 10");
                         options.setBrowserVersion("latest");
-                        Map<String, Object> ltOptions = new HashMap<>();
-                        ltOptions.put("build", "Selenium Cucumber Sample Build");
-                        ltOptions.put("name", "Selenium Test");
+                        Map<String, Object> ltOptions = configLambdaTestCapabilities();
                         options.setCapability("LT:Options", ltOptions);
 
-                        String gridURL = "https://"
-                                + PropFileMgmt.getPropertyValue(CentralVars.PropNameLtUsername)
-                                + ":"
-                                + PropFileMgmt.getPropertyValue(CentralVars.PropNameLtAccesskey)
-                                + "@hub.lambdatest.com/wd/hub";
-
-                        LogThis.info("LambdaTest API : " + gridURL);
+                        String gridURL = configLambdaTestUrl();
 
                         driver = new RemoteWebDriver(new URL(gridURL), options);
 
@@ -71,8 +65,37 @@ public class WebDriverHelper {
                         driver = new ChromeDriver(options);
 
                     }
+                    break;
+                case "firefox":
+                    WebDriverManager.firefoxdriver().setup();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
 
+                    firefoxOptions.addArguments("--width=1920");
+                    firefoxOptions.addArguments("--height=1080");
+
+                    if (PropFileMgmt.getPropertyValue(CentralVars.PropNameBrowserMode).equalsIgnoreCase("headless")) {
+                        firefoxOptions.addArguments("-headless");
+                    }
+
+                    if (PropFileMgmt.getPropertyValue(CentralVars.PropNameLocation).equalsIgnoreCase("lambdatest")) {
+
+                        firefoxOptions.setPlatformName("Windows 10");
+                        firefoxOptions.setBrowserVersion("latest");
+                        Map<String, Object> ltOptions = configLambdaTestCapabilities();
+                        firefoxOptions.setCapability("LT:Options", ltOptions);
+
+                        String gridURL = configLambdaTestUrl();
+
+                        driver = new RemoteWebDriver(new URL(gridURL), firefoxOptions);
+
+                    } else {
+
+                        driver = new FirefoxDriver(firefoxOptions);
+
+                    }
+                    break;
                 default:
+                    break;
             }
 
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TIMEOUT));
@@ -82,6 +105,26 @@ public class WebDriverHelper {
             LogThis.error("Exception e  = " + e);
         }
 
+    }
+
+    private Map<String, Object> configLambdaTestCapabilities() {
+        Map<String, Object> ltOptions = new HashMap<>();
+        ltOptions.put("build", "Selenium Cucumber Sample Build");
+        ltOptions.put("name", "Selenium Test");
+
+        return ltOptions;
+    }
+
+    private String configLambdaTestUrl() {
+        String gridURL = "https://"
+                + PropFileMgmt.getPropertyValue(CentralVars.PropNameLtUsername)
+                + ":"
+                + PropFileMgmt.getPropertyValue(CentralVars.PropNameLtAccesskey)
+                + "@hub.lambdatest.com/wd/hub";
+
+        //LogThis.info("LambdaTest API : " + gridURL);
+
+        return gridURL;
     }
 
     public static void openPage(String url) {
