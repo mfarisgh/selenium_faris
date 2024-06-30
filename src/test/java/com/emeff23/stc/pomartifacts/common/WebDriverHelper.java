@@ -129,8 +129,13 @@ public class WebDriverHelper {
 
     public static void openPage(String url) {
 
-        driver.get(url);
+        try {
+            driver.get(url);
 
+            Thread.sleep(Duration.ofSeconds(2).toMillis());
+        } catch (Exception e) {
+            LogThis.error("Exception e = " + e.getMessage());
+        }
     }
 
     public static synchronized WebDriver getDriver() {
