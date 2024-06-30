@@ -17,7 +17,7 @@
 		<webdrivermgr.version>5.7.0</webdrivermgr.version>
 		<testng.version>7.9.0</testng.version>
 		<apachepoi.version>4.1.2</apachepoi.version>
-		<apache.commons.compress.ver>1.20</apache.commons.compress.ver>
+		<apache.commons.compress.ver>1.26.1</apache.commons.compress.ver>
 		<apache.common.version>2.4</apache.common.version>
 		<jira.client.ver>0.5</jira.client.ver>
 		<logger.version>3.0.0-beta2</logger.version>
