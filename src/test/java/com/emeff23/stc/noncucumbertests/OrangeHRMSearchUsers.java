@@ -66,6 +66,8 @@ public class OrangeHRMSearchUsers {
 
             objLogin.login(userName, passWord);
 
+            Thread.sleep(Duration.ofSeconds(2).toMillis());
+
             menuActions.navigateMenuAdmin();
 
             //String searchUsername = "Alice";

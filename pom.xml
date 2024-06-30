@@ -12,10 +12,10 @@
 	<properties>
 		<java.version>17</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<cucumber.version>7.15.0</cucumber.version>
-		<selenium.version>4.18.1</selenium.version>
-		<webdrivermgr.version>5.7.0</webdrivermgr.version>
-		<testng.version>7.9.0</testng.version>
+		<cucumber.version>7.18.0</cucumber.version>
+		<selenium.version>4.22.0</selenium.version>
+		<webdrivermgr.version>5.9.1</webdrivermgr.version>
+		<testng.version>7.10.2</testng.version>
 		<apachepoi.version>4.1.2</apachepoi.version>
 		<apache.commons.compress.ver>1.26.1</apache.commons.compress.ver>
 		<apache.common.version>2.4</apache.common.version>

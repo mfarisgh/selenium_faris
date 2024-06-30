@@ -67,7 +67,7 @@ public class WebDriverHelper {
                     }
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+                    WebDriverManager.firefoxdriver().clearDriverCache().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
 
                     firefoxOptions.addArguments("--width=1920");

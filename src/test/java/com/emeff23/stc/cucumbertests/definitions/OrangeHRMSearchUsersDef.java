@@ -31,11 +31,18 @@ public class OrangeHRMSearchUsersDef {
     @Given("User goes on HRMLogin page {string} and login using {string} and {string}")
     public void loginTest(String url, String userName, String passWord) {
 
-        WebDriverHelper.openPage(url);
+        try {
+            WebDriverHelper.openPage(url);
 
-        objLogin.login(userName, passWord);
+            objLogin.login(userName, passWord);
 
-        menuActions.navigateMenuAdmin();
+            Thread.sleep(Duration.ofSeconds(2).toMillis());
+
+            menuActions.navigateMenuAdmin();
+        } catch (Exception e) {
+            LogThis.error("Exception e = " + e.getMessage());
+            Assert.fail("Exception e = " + e.getMessage());
+        }
     }
 
     @When("User types username {string}")
