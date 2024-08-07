@@ -71,11 +71,11 @@ public class WebDriverHelper {
                     WebDriverManager.firefoxdriver().clearDriverCache().setup();
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
 
-                    firefoxOptions.addPreference("dom.block_external_protocol_navigation_from_sandbox", "false");
-                    firefoxOptions.addPreference("media.cubeb.sandbox", "false");
+                    //firefoxOptions.addPreference("dom.block_external_protocol_navigation_from_sandbox", "false");
+                    //firefoxOptions.addPreference("media.cubeb.sandbox", "false");
                     //firefoxOptions.addPreference("security.sandbox.content.headless", "false");
-                    firefoxOptions.addPreference("security.sandbox.content.level", "0");
-                    firefoxOptions.addPreference("security.sandbox.socket.process.level", "0");
+                    //firefoxOptions.addPreference("security.sandbox.content.level", "0");
+                    //firefoxOptions.addPreference("security.sandbox.socket.process.level", "0");
 
                     firefoxOptions.addArguments("--width=1920");
                     firefoxOptions.addArguments("--height=1080");
