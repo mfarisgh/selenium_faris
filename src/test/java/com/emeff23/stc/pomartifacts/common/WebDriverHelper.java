@@ -46,9 +46,9 @@ public class WebDriverHelper {
                     }
 
                     options.addArguments("--no-sandbox");
-                    options.addArguments("--remote-allow-origins=*");
-                    options.addArguments("--ignore-ssl-errors=yes");
-                    options.addArguments("--ignore-certificate-errors");
+                    //options.addArguments("--remote-allow-origins=*");
+                    //options.addArguments("--ignore-ssl-errors=yes");
+                    //options.addArguments("--ignore-certificate-errors");
 
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameLocation).equalsIgnoreCase("lambdatest")) {
 
