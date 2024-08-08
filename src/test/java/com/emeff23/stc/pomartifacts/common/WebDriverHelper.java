@@ -39,7 +39,12 @@ public class WebDriverHelper {
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomWebDriver).equalsIgnoreCase("true")) {
                         System.setProperty("webdriver.chrome.driver", PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomChromeDriverPath));
                     }
+
                     ChromeOptions options = new ChromeOptions();
+
+                    if (PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomBinary).equalsIgnoreCase("true")) {
+                        options.setBinary(PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomChromeBinaryPath));
+                    }
 
                     options.addArguments("--window-size=1920,1080");
                     //options.addArguments("--start-maximized");
@@ -75,7 +80,12 @@ public class WebDriverHelper {
                     if (PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomWebDriver).equalsIgnoreCase("true")) {
                         System.setProperty("webdriver.gecko.driver", PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomFirefoxDriverPath));
                     }
+
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
+
+                    if (PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomBinary).equalsIgnoreCase("true")) {
+                        firefoxOptions.setBinary(PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomFirefoxBinaryPath));
+                    }
 
                     //firefoxOptions.addPreference("dom.block_external_protocol_navigation_from_sandbox", "false");
                     //firefoxOptions.addPreference("media.cubeb.sandbox", "false");

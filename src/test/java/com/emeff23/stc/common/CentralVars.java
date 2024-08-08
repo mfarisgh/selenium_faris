@@ -13,6 +13,9 @@ public abstract class CentralVars {
     public static String PropNameCustomWebDriver = "custom.webdriver";
     public static String PropNameCustomChromeDriverPath = "custom.chromedriver.path";
     public static String PropNameCustomFirefoxDriverPath = "custom.firefoxdriver.path";
+    public static String PropNameCustomBinary = "custom.binary";
+    public static String PropNameCustomChromeBinaryPath = "custom.chromebinary.path";
+    public static String PropNameCustomFirefoxBinaryPath = "custom.firefoxbinary.path";
 
     public static String PropNameLtUsername = "lt.username";
     public static String PropNameLtAccesskey = "lt.accesskey";
