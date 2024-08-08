@@ -9,6 +9,11 @@ public abstract class CentralVars {
     public static String PropNameLocation = "location";
     public static String PropNameBrowser = "browser";
     public static String PropNameBrowserMode = "browser.mode";
+
+    public static String PropNameCustomWebDriver = "custom.webdriver";
+    public static String PropNameCustomChromeDriverPath = "custom.chromedriver.path";
+    public static String PropNameCustomFirefoxDriverPath = "custom.firefoxdriver.path";
+
     public static String PropNameLtUsername = "lt.username";
     public static String PropNameLtAccesskey = "lt.accesskey";
     public static String PropNameWebUrl = "web.url";

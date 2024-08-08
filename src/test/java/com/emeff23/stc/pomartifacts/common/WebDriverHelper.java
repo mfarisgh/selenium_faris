@@ -36,6 +36,9 @@ public class WebDriverHelper {
             switch (PropFileMgmt.getPropertyValue(CentralVars.PropNameBrowser)) {
                 case "chrome":
                     //WebDriverManager.chromedriver().setup();
+                    if (PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomWebDriver).equalsIgnoreCase("true")) {
+                        System.setProperty("webdriver.chrome.driver", PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomChromeDriverPath));
+                    }
                     ChromeOptions options = new ChromeOptions();
 
                     options.addArguments("--window-size=1920,1080");
@@ -69,6 +72,9 @@ public class WebDriverHelper {
                     break;
                 case "firefox":
                     //WebDriverManager.firefoxdriver().clearDriverCache().setup();
+                    if (PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomWebDriver).equalsIgnoreCase("true")) {
+                        System.setProperty("webdriver.gecko.driver", PropFileMgmt.getPropertyValue(CentralVars.PropNameCustomFirefoxDriverPath));
+                    }
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
 
                     //firefoxOptions.addPreference("dom.block_external_protocol_navigation_from_sandbox", "false");
