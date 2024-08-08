@@ -83,6 +83,9 @@ public class WebDriverHelper {
                     //firefoxOptions.addPreference("security.sandbox.content.level", "0");
                     //firefoxOptions.addPreference("security.sandbox.socket.process.level", "0");
 
+                    firefoxOptions.addArguments("--memory 1024mb");
+                    firefoxOptions.addArguments("--shm-size 2g");
+
                     firefoxOptions.addArguments("--width=1920");
                     firefoxOptions.addArguments("--height=1080");
 
